@@ -1,22 +1,13 @@
-import IoC from './ioc.js';
-import appConfig from './configs/appConfig.js';
-import { ServiceProvider } from './service-provider.js';
 import {
 	APP_CONFIG_TOKEN,
 	APP_TITLE_TOKEN,
 	ROUTERS_TOKEN,
 } from './modules/example/contracts.js';
 import { ExampleService } from './modules/example/example.service.js';
+import { App } from './modules/framework/app.js';
 
-const ioc = new IoC();
-
-for (let serviceProvider of appConfig.providers) {
-	if (!(serviceProvider instanceof ServiceProvider)) {
-		console.error('Incorrect type of ServiceProvider', serviceProvider);
-		throw new Error('Incorrect type of ServiceProvider');
-	}
-	serviceProvider.register(ioc);
-}
+const app = new App();
+const ioc = app.run();
 
 const appTitle = ioc.use(APP_TITLE_TOKEN);
 

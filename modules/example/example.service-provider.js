@@ -1,4 +1,4 @@
-import { ServiceProvider } from '../../service-provider.js';
+import { ServiceProvider } from '../framework/service-provider.js';
 import {
 	APP_CONFIG_TOKEN,
 	APP_TITLE_TOKEN,
