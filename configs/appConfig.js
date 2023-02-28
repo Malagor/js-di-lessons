@@ -1,5 +1,6 @@
 import exampleServiceProvider from '../modules/example/example.service-provider.js';
 import { consoleLoggerServiceProvider } from '../modules/console-logger/console-logger.service-provider.js';
+import { routingServiceProvider } from '../modules/routing/routing.service-provider.js';
 
 /**
  * @typedef AppConfig
@@ -11,7 +12,11 @@ import { consoleLoggerServiceProvider } from '../modules/console-logger/console-
  * @type {AppConfig}
  */
 const appConfig = {
-	providers: [exampleServiceProvider, consoleLoggerServiceProvider],
+	providers: [
+		exampleServiceProvider,
+		consoleLoggerServiceProvider,
+		routingServiceProvider,
+	],
 	foo: 'FOO',
 };
 

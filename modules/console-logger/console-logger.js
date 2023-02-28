@@ -2,7 +2,7 @@ import { Logger } from '../framework/logger.js';
 
 export class ConsoleLogger extends Logger {
 	debug(...message) {
-		console.log(message);
+		console.log(...message);
 	}
 
 	info(...message) {
@@ -10,6 +10,6 @@ export class ConsoleLogger extends Logger {
 	}
 
 	error(...message) {
-		console.error(message);
+		console.error(...message);
 	}
 }

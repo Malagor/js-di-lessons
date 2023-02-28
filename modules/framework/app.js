@@ -2,6 +2,7 @@ import IoC from './ioc.js';
 import appConfig from '../../configs/appConfig.js';
 import { ServiceProvider } from './service-provider.js';
 import { Logger } from './logger.js';
+import { Router } from '../routing/router.js';
 
 export class App {
 	/**
@@ -21,6 +22,10 @@ export class App {
 			}
 			serviceProvider.register(ioc);
 		}
+
+		/** @type {Router}*/
+		const router = ioc.use(Router);
+		router.init();
 
 		/** @type {Logger}*/
 		const logger = ioc.use(Logger);

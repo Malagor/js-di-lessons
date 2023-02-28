@@ -6,6 +6,9 @@ import {
 } from './contracts.js';
 import appConfig from '../../configs/appConfig.js';
 import { ExampleService } from './example.service.js';
+import { RouteCollection } from '../routing/route-collection.js';
+import { HomePageRoute } from './home-page.route.js';
+import { AboutPageRoute } from './about-page.route.js';
 
 class ExampleServiceProvider extends ServiceProvider {
 	register(ioc) {
@@ -43,6 +46,16 @@ class ExampleServiceProvider extends ServiceProvider {
 					title: 'About Us',
 				},
 			];
+		});
+
+		ioc.resolving(RouteCollection, (ctx) => {
+			/** @type {RouteCollection} */
+			const routerCollection = ctx.instance;
+
+			routerCollection.addRoute(new HomePageRoute());
+			routerCollection.addRoute(new AboutPageRoute());
+
+			return routerCollection;
 		});
 	}
 }
